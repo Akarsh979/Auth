@@ -1,4 +1,4 @@
-const asyncHandler = (fn) => async (req,res,next) => {
+export const asyncHandler = (fn) => async (req,res,next) => {
    try {
       await fn(req,res,next);
    } catch (err) {
@@ -8,3 +8,4 @@ const asyncHandler = (fn) => async (req,res,next) => {
       })
    }
 }
+

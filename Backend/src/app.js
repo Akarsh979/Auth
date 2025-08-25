@@ -14,8 +14,13 @@ app.use(express.urlencoded({extended: true,limit: "16kb"}));
 app.use(express.static("public"));
 app.use(cookieParser());
 
+
 import userRoutes from './routes/user.routes.js'
+import { errorHandler } from './middlewares/errorHandler.js';
 
 app.use('/api/v1/users',userRoutes);
+
+// Global error handler (should be after all routes)
+app.use(errorHandler);
 
 export default app;
